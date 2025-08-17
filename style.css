@@ -1,42 +1,88 @@
 :root{
-    --cor-fundo: #06010e;
-    --cor-principal: #115158 ;
-    --cor-secundaria: #162a44;
-    --cor-destaque: #8eb2eb;
-    --cor-texto: #2457a3;
+    --cor-fundo: #0d1117;
+    --cor-principal: #1f3c5c;
+    --cor-secundaria: #284d6f;
+    --cor-destaque: #4fa3f7;
+    --cor-texto: #e6edf3;
+    --cor-botao-hover: #72bbff;
 }
 
 body{
-    background-color: var(--cor-fundo);
+    background: linear-gradient(135deg, var(--cor-fundo), #141b29);
     color: var(--cor-texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    margin: 0;
 }
 
 .caixa-principal{
-    background-color: var(--cor-principal);
+    background: var(--cor-principal);
     width: 90%;
     max-width: 600px;
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    animation: aparecer 0.8s ease-in-out;
 }
 
 h1{
     color: var(--cor-destaque);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.caixa-perguntas{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.caixa-alternativas{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 button{
-    background-color: var(--cor-secundaria);
+    background: var(--cor-secundaria);
     color: var(--cor-texto);
     border: none;
-    border-radius: 15px;
-    padding: 15px;
-    transition: background-color 0.3s;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 button:hover{
-    background-color: var(--cor-destaque);
-    color: var(--cor-principal);
+    background-color: var(--cor-botao-hover);
+    color: #0d1b2a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.caixa-resultado{
+    margin-top: 20px;
+    font-size: 1.1rem;
+    background: rgba(255,255,255,0.08);
+    padding: 15px;
+    border-radius: 12px;
+    display: none; /* só aparece no final do quiz */
+}
+
+.texto-resultado{
+    color: var(--cor-destaque);
+    font-weight: bold;
+}
+
+/* animação suave na entrada */
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
