@@ -85,9 +85,9 @@ function mostraResultado(){
 
     let resultadoFinal = "";
     if(oleosa > seca){
-        resultadoFinal = "Sua pele é predominantemente OLEOSA. 💧";
+        resultadoFinal = "Sua pele é predominantemente OLEOSA.";
     } else if(seca > oleosa){
-        resultadoFinal = "Sua pele é predominantemente SECA. 🌵";
+        resultadoFinal = "Sua pele é predominantemente SECA.";
     } else {
         resultadoFinal = "Sua pele apresenta características MISTAS, variando entre oleosa e seca. ⚖️";
     }
