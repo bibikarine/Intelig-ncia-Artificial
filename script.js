@@ -10,11 +10,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Logo fica com brilho e sensação de oleosidade.",
-                afirmacao: "Sua pele tem características de PELE OLEOSA, que produz excesso de sebo e pode ter tendência à acne."
+                afirmacao: "Sua pele tem características de PELE OLEOSA."
             },
             {
                 texto: "Sente repuxar ou ficar ressecada.",
-                afirmacao: "Sua pele tem características de PELE SECA, que necessita de mais hidratação."
+                afirmacao: "Sua pele tem características de PELE SECA."
             }    
         ]
     },
@@ -23,11 +23,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Dura pouco tempo e fica brilhante rapidamente.",
-                afirmacao: "Esse é um sinal de PELE OLEOSA, que absorve menos bem a maquiagem por causa do excesso de oleosidade."
+                afirmacao: "Esse é um sinal de PELE OLEOSA."
             },
             {
                 texto: "A maquiagem marca linhas finas ou descamações.",
-                afirmacao: "Esse é um sinal de PELE SECA, que precisa de hidratação antes da maquiagem."
+                afirmacao: "Esse é um sinal de PELE SECA."
             }    
         ]
     },
@@ -36,31 +36,31 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Fica com aspecto brilhoso, principalmente na zona T (testa, nariz e queixo).",
-                afirmacao: "Você provavelmente tem PELE OLEOSA, que precisa de produtos que controlem o sebo."
+                afirmacao: "Você provavelmente tem PELE OLEOSA."
             },
             {
                 texto: "Permanece opaca, áspera e pode descamar.",
-                afirmacao: "Você provavelmente tem PELE SECA, que precisa de cuidados mais nutritivos e protetores."
+                afirmacao: "Você provavelmente tem PELE SECA."
             }    
         ]
     },
 ]
 
 let atual = 0;
-let perguntaAtual;
-let historiaFinal = "";
+let respostas = [];
 
 function mostraPergunta(){
     if(atual >= perguntas.length){
         mostraResultado();
         return;
     }
-    perguntaAtual = perguntas[atual];
+    let perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
-    mostraAlternativas();
+    mostraAlternativas(perguntaAtual);
 }
-function mostraAlternativas(){
+
+function mostraAlternativas(perguntaAtual){
     for(const alternativa of perguntaAtual.alternativas){
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
@@ -68,16 +68,32 @@ function mostraAlternativas(){
         caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
+
 function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = opcaoSelecionada.afirmacao;
-    historiaFinal += afirmacoes + " ";
-    atual++
+    respostas.push(opcaoSelecionada.afirmacao);
+    atual++;
     mostraPergunta();
 }
+
 function mostraResultado(){
     caixaPerguntas.textContent = "Olha só o que podemos afirmar sobre sua pele...";
-    textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
+
+    // conta quantas vezes apareceu "oleosa" ou "seca"
+    const oleosa = respostas.filter(r => r.includes("OLEOSA")).length;
+    const seca = respostas.filter(r => r.includes("SECA")).length;
+
+    let resultadoFinal = "";
+    if(oleosa > seca){
+        resultadoFinal = "Sua pele é predominantemente OLEOSA. 💧";
+    } else if(seca > oleosa){
+        resultadoFinal = "Sua pele é predominantemente SECA. 🌵";
+    } else {
+        resultadoFinal = "Sua pele apresenta características MISTAS, variando entre oleosa e seca. ⚖️";
+    }
+
+    textoResultado.textContent = resultadoFinal;
+    caixaResultado.style.display = "block";
 }
 
 mostraPergunta();
