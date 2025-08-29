@@ -10,14 +10,14 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Logo fica com brilho e sensação de oleosidade.",
-                afirmacao: "Sua pele tem características de PELE OLEOSA.
-                 },
+                afirmacao: "Sua pele tem características de PELE OLEOSA."
+            },
             {
                 texto: "Sente repuxar ou ficar ressecada.",
                 afirmacao: "Sua pele tem características de PELE SECA."
-            }    
+            }
         ]
-    }
+    },
     {
         enunciado: "Quando você passa maquiagem, como ela se comporta na sua pele?",
         alternativas: [
@@ -28,7 +28,7 @@ const perguntas = [
             {
                 texto: "A maquiagem marca linhas finas ou descamações.",
                 afirmacao: "Esse é um sinal de PELE SECA."
-            }    
+            }
         ]
     },
     {
@@ -41,16 +41,16 @@ const perguntas = [
             {
                 texto: "Permanece opaca, áspera e pode descamar.",
                 afirmacao: "Você provavelmente tem PELE SECA."
-            }    
+            }
         ]
-    },
-]
+    }
+];
 
 let atual = 0;
 let respostas = [];
 
-function mostraPergunta(){
-    if(atual >= perguntas.length){
+function mostraPergunta() {
+    if (atual >= perguntas.length) {
         mostraResultado();
         return;
     }
@@ -60,8 +60,8 @@ function mostraPergunta(){
     mostraAlternativas(perguntaAtual);
 }
 
-function mostraAlternativas(perguntaAtual){
-    for(const alternativa of perguntaAtual.alternativas){
+function mostraAlternativas(perguntaAtual) {
+    for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
         botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
@@ -75,25 +75,21 @@ function respostaSelecionada(opcaoSelecionada) {
     mostraPergunta();
 }
 
-function mostraResultado(){
+function mostraResultado() {
     caixaPerguntas.textContent = "Olha só o que podemos afirmar sobre sua pele...";
     caixaAlternativas.textContent = "";
 
-    // conta quantas vezes apareceu "oleosa" ou "seca"
     const oleosa = respostas.filter(r => r.includes("OLEOSA")).length;
     const seca = respostas.filter(r => r.includes("SECA")).length;
 
     let resultadoFinal = "";
-    if(oleosa > seca){
-        resultadoFinal = "Sua pele é predominantemente OLEOSA.";
-    } else if(seca > oleosa){
-        resultadoFinal = "Sua pele é predominantemente SECA.";
+
+    if (oleosa > seca) {
+        resultadoFinal = "Sua pele é predominantemente OLEOSA. Isso significa que suas glândulas sebáceas produzem mais óleo do que o necessário, o que pode causar brilho excessivo, poros dilatados e tendência a acne. É importante investir em produtos com controle de oleosidade e limpeza equilibrada.";
+    } else if (seca > oleosa) {
+        resultadoFinal = "Sua pele é predominantemente SECA. Isso indica que sua pele produz menos óleo natural, o que pode resultar em sensação de repuxamento, descamação e aparência sem viço. Hidratação intensa e produtos nutritivos são essenciais para manter o conforto e a saúde da pele.";
     } else {
-        resultadoFinal = "Sua pele apresenta características MISTAS, variando entre oleosa e seca. ⚖️";
+        resultadoFinal = "Sua pele apresenta características MISTAS, variando entre oleosa e seca. Isso significa que diferentes áreas do seu rosto têm necessidades diferentes — geralmente a zona T é mais oleosa e as bochechas mais secas. O ideal é usar produtos equilibrados e tratamentos específicos para cada região.";
     }
 
-    textoResultado.textContent = resultadoFinal;
-    caixaResultado.style.display = "block";
-}
-
-mostraPergunta();
+    textoResultado.textCont
