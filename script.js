@@ -54,6 +54,7 @@ function mostraPergunta() {
         mostraResultado();
         return;
     }
+
     let perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
@@ -85,11 +86,15 @@ function mostraResultado() {
     let resultadoFinal = "";
 
     if (oleosa > seca) {
-        resultadoFinal = "Sua pele é predominantemente OLEOSA. Isso significa que suas glândulas sebáceas produzem mais óleo do que o necessário, o que pode causar brilho excessivo, poros dilatados e tendência a acne. É importante investir em produtos com controle de oleosidade e limpeza equilibrada.";
+        resultadoFinal = "Sua pele é predominantemente OLEOSA. Ela tende a produzir mais sebo, o que pode causar brilho excessivo, poros dilatados e maior propensão à acne. É importante usar produtos específicos que controlem a oleosidade sem agredir a pele.";
     } else if (seca > oleosa) {
-        resultadoFinal = "Sua pele é predominantemente SECA. Isso indica que sua pele produz menos óleo natural, o que pode resultar em sensação de repuxamento, descamação e aparência sem viço. Hidratação intensa e produtos nutritivos são essenciais para manter o conforto e a saúde da pele.";
+        resultadoFinal = "Sua pele é predominantemente SECA. Isso significa que ela produz menos óleo natural, podendo apresentar descamação, sensação de repuxamento e aspecto opaco. Invista em uma rotina rica em hidratação e produtos suaves.";
     } else {
-        resultadoFinal = "Sua pele apresenta características MISTAS, variando entre oleosa e seca. Isso significa que diferentes áreas do seu rosto têm necessidades diferentes — geralmente a zona T é mais oleosa e as bochechas mais secas. O ideal é usar produtos equilibrados e tratamentos específicos para cada região.";
+        resultadoFinal = "Sua pele apresenta características MISTAS, variando entre oleosa e seca. Normalmente, a zona T (testa, nariz e queixo) é mais oleosa, enquanto outras áreas podem ser secas ou normais. Uma rotina de cuidados equilibrada e personalizada é ideal para esse tipo de pele.";
     }
 
-    textoResultado.textCont
+    textoResultado.textContent = resultadoFinal;
+    caixaResultado.style.display = "block";
+}
+
+mostraPergunta();
