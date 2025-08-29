@@ -11,21 +11,7 @@ const perguntas = [
             {
                 texto: "Logo fica com brilho e sensação de oleosidade.",
                 afirmacao: "Sua pele tem características de PELE OLEOSA.
-                Para quem tem a **pele seca**, é fundamental focar em ingredientes que hidratam profundamente. Receitas naturais podem ser ótimas aliadas, mas exigem cuidado.
-
-**Receitas que funcionam:**
-
-* **Máscara de Abacate e Mel:** O abacate é rico em óleos nutritivos, e o mel é um poderoso hidratante natural. A combinação nutre e retém a umidade na pele.
-* **Hidratante de Óleo de Coco:** O óleo de coco cria uma barreira protetora que impede a perda de água, sendo ideal para aplicar na pele levemente úmida após o banho.
-
-**Benefícios:** Essas receitas **nutrem, acalmam e hidratam intensamente** a pele, combatendo o ressecamento e a irritação.
-
-**Cuidados importantes:**
-
-* **Reações alérgicas:** Mesmo ingredientes naturais podem causar alergias. Faça sempre um **teste de sensibilidade** antes de aplicar a receita no rosto todo.
-* **Potenciais irritantes:** Evite ingredientes ácidos como o suco de limão, que podem sensibilizar e manchar a pele, especialmente sob o sol.
-* **Higiene:** Por não terem conservantes, as receitas caseiras podem estragar rápido. Prepare apenas a quantidade que for usar de imediato para evitar a proliferação de bactérias."
-            },
+                 },
             {
                 texto: "Sente repuxar ou ficar ressecada.",
                 afirmacao: "Sua pele tem características de PELE SECA."
