@@ -17,7 +17,7 @@ const perguntas = [
                 afirmacao: "Sua pele tem características de PELE SECA."
             }    
         ]
-    },
+    }
     {
         enunciado: "Quando você passa maquiagem, como ela se comporta na sua pele?",
         alternativas: [
